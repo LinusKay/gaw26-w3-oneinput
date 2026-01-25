@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://3mb2v75d48ts"]
+
+[ext_resource type="Script" path="res://scenes/interfaces/noexternalboot.gd" id="1_i7phl"]
+[ext_resource type="FontFile" uid="uid://pcedp7rwtw70" path="res://theme/HomeVideo-BLG6G.ttf" id="2_k0mb4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5wjl"]
+font = ExtResource("2_k0mb4")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i7phl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+offset_right = 299.0
+offset_bottom = 23.0
+text = "NO EXTERNAL BOOT DEVICE DETECTED
+
+RESTARTING. . ."
+label_settings = SubResource("LabelSettings_l5wjl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

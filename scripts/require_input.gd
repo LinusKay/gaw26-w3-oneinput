@@ -15,6 +15,7 @@ func start() -> void:
 	
 func success() -> void:
 	print("success")
+	timer.stop()
 	next()
 
 
@@ -26,10 +27,6 @@ func fail() -> void:
 
 func _on_timer_timeout() -> void:
 	fail()
-
-
-func _on_button_pressed() -> void:
-	success()
 
 
 func next() -> void:

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://blyw11iq8h1vh"]
+
+[ext_resource type="Script" path="res://scenes/interfaces/corton_boot.gd" id="1_jb5s3"]
+[ext_resource type="FontFile" uid="uid://pcedp7rwtw70" path="res://theme/HomeVideo-BLG6G.ttf" id="2_dpqa3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w4p77"]
+font = ExtResource("2_dpqa3")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_18rj5"]
+font = ExtResource("2_dpqa3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hh07f"]
+font = ExtResource("2_dpqa3")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jb5s3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -126.0
+offset_top = 87.0
+offset_right = 126.0
+offset_bottom = 210.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "CORTON"
+label_settings = SubResource("LabelSettings_w4p77")
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "INSPIRE EVERYTHING"
+label_settings = SubResource("LabelSettings_18rj5")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -163.5
+offset_top = -23.0
+offset_right = 163.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press DEL or F2 to enter Boot Menu"
+label_settings = SubResource("LabelSettings_hh07f")
+
+[node name="Timer" type="Timer" parent="Control"]
+wait_time = 5.0
+autostart = true
+
+[node name="TimerReload" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_reload_timeout"]

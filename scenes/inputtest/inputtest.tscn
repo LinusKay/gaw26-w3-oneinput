@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bq3huk364skd3"]
 
-[ext_resource type="Script" uid="uid://vw1uik1lapom" path="res://scenes/inputtest/inputtest.gd" id="1_k7yp6"]
+[ext_resource type="Script" path="res://scenes/inputtest/inputtest.gd" id="1_k7yp6"]
 
 [node name="InputTest" type="Control"]
 layout_mode = 3
@@ -18,7 +18,7 @@ offset_right = 227.0
 offset_bottom = 76.0
 
 [node name="LabelMouseInput" type="Label" parent="VBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
 text = "Mouse Input"
 
@@ -26,31 +26,31 @@ text = "Mouse Input"
 layout_mode = 2
 
 [node name="LabelKeyInput" type="Label" parent="VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
 text = "Key Input"
 
 [node name="LabelKeyInputVolDown" type="Label" parent="VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
 text = "Key Input Vol Down"
 
 [node name="LabelKeyInputVolUp" type="Label" parent="VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
 text = "Key Input Vol Up"
 
 [node name="LabelControlInput" type="Label" parent="VBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
 text = "Controller Input"
 
-[node name="LabelUSBInputSTORAGE" type="Label" parent="VBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+[node name="LabelUSBInputBOOTDRIVE" type="Label" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
-text = "Drive: STORAGE16 Input"
+text = "Drive: BOOTDRIVE Input"
 
 [node name="LabelUSBInputUTIL" type="Label" parent="VBoxContainer"]
-modulate = Color(1, 1, 1, 0.45490196)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 2
 text = "Drive: UTIL03 Input"

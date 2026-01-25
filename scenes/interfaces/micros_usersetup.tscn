@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://crx0nxhy4jd1q"]
+
+[ext_resource type="Script" path="res://scenes/interfaces/micros_usersetup.gd" id="1_15ock"]
+[ext_resource type="Theme" uid="uid://bkkk12h5j8dkn" path="res://theme/micros_theme.tres" id="1_ids4o"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15ock")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0875251, 0.355114, 0.347909, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -60.0
+offset_right = 158.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ids4o")
+text = "New Username"
+
+[node name="LineEditUsername" type="LineEdit" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ids4o")
+text = "New Password"
+
+[node name="LineEditPassword" type="LineEdit" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 82.0
+offset_right = 25.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ids4o")
+disabled = true
+text = "OK"
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

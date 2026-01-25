@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bkkk12h5j8dkn"]
+
+[ext_resource type="FontFile" uid="uid://br3ck050cs5b3" path="res://theme/UbuntuMono[wght].ttf" id="1_6so6t"]
+
+[resource]
+default_font = ExtResource("1_6so6t")

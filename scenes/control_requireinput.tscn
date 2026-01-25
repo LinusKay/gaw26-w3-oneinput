@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://kfx70ad3iiej"]
 
-[ext_resource type="Script" uid="uid://dkxvln7qne5qi" path="res://require_input_mouse.gd" id="1_lrr8u"]
-[ext_resource type="Script" uid="uid://do4l700rc4h8w" path="res://require_input_keyboard.gd" id="2_lo3sc"]
-[ext_resource type="Script" uid="uid://bafo63i1p1nlr" path="res://require_input_usb.gd" id="3_lo3sc"]
+[ext_resource type="Script" path="res://scripts/require_input_mouse.gd" id="2_lxsvh"]
+[ext_resource type="Script" path="res://scripts/require_input_keyboard.gd" id="3_5v38v"]
+[ext_resource type="Script" path="res://scripts/require_input_usb.gd" id="4_jg6kk"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RequireInputMouse" type="Control" parent="."]
+[node name="RequireInputMouse" type="Control" parent="." node_paths=PackedStringArray("next_require_input")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -20,7 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lrr8u")
+script = ExtResource("2_lxsvh")
+next_require_input = NodePath("../RequireInputKeyboard")
 
 [node name="Button" type="Button" parent="RequireInputMouse"]
 layout_mode = 1
@@ -38,9 +39,10 @@ grow_vertical = 2
 text = "Click"
 
 [node name="Timer" type="Timer" parent="RequireInputMouse"]
+wait_time = 5.0
 one_shot = true
 
-[node name="RequireInputKeyboard" type="Control" parent="."]
+[node name="RequireInputKeyboard" type="Control" parent="." node_paths=PackedStringArray("next_require_input")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -48,7 +50,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_lo3sc")
+script = ExtResource("3_5v38v")
+next_require_input = NodePath("../RequireInputUSB")
 
 [node name="Label" type="Label" parent="RequireInputKeyboard"]
 layout_mode = 1
@@ -66,22 +69,40 @@ grow_vertical = 2
 text = "Press Space"
 
 [node name="Timer" type="Timer" parent="RequireInputKeyboard"]
+wait_time = 5.0
 one_shot = true
 
-[node name="RequireInputUSB" type="Control" parent="."]
+[node name="RequireInputUSB" type="Control" parent="." node_paths=PackedStringArray("next_require_input")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_lo3sc")
+script = ExtResource("4_jg6kk")
+next_require_input = NodePath("../RequireInputMouse")
 
 [node name="Label" type="Label" parent="RequireInputUSB"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -11.5
+offset_right = 38.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Input USB"
+
+[node name="Timer" type="Timer" parent="RequireInputUSB"]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="pressed" from="RequireInputMouse/Button" to="RequireInputMouse" method="_on_button_pressed"]
 [connection signal="timeout" from="RequireInputMouse/Timer" to="RequireInputMouse" method="_on_timer_timeout"]
 [connection signal="timeout" from="RequireInputKeyboard/Timer" to="RequireInputKeyboard" method="_on_timer_timeout"]
+[connection signal="timeout" from="RequireInputUSB/Timer" to="RequireInputKeyboard" method="_on_timer_timeout"]

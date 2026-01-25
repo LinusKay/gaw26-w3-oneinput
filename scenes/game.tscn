@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://83syuj7lh0ym"]
+
+[ext_resource type="PackedScene" uid="uid://blyw11iq8h1vh" path="res://scenes/interfaces/corton_boot.tscn" id="2_f0xlq"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="." instance=ExtResource("2_f0xlq")]
+layout_mode = 1
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
