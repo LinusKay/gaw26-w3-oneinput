@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://crx0nxhy4jd1q"]
+[gd_scene load_steps=6 format=3 uid="uid://crx0nxhy4jd1q"]
 
 [ext_resource type="Script" path="res://scenes/interfaces/micros_usersetup.gd" id="1_15ock"]
 [ext_resource type="Theme" uid="uid://bkkk12h5j8dkn" path="res://theme/micros_theme.tres" id="1_ids4o"]
+[ext_resource type="Texture2D" uid="uid://bxnavgwrhady0" path="res://textures/keyboard_icon.png" id="3_vuy08"]
+[ext_resource type="Texture2D" uid="uid://bkwilyf1xtbmo" path="res://textures/cursor_icon.png" id="4_j8ah5"]
+[ext_resource type="Script" path="res://scenes/interfaces/control_t_cs.gd" id="5_u82we"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,7 +24,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0875251, 0.355114, 0.347909, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="ControlUserCreds" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlUserCreds"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,23 +46,25 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Label" type="Label" parent="ControlUserCreds/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ids4o")
 text = "New Username"
 
-[node name="LineEditUsername" type="LineEdit" parent="ColorRect/VBoxContainer"]
+[node name="LineEditUsername" type="LineEdit" parent="ControlUserCreds/VBoxContainer"]
 layout_mode = 2
+right_icon = ExtResource("3_vuy08")
 
-[node name="Label2" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Label2" type="Label" parent="ControlUserCreds/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ids4o")
 text = "New Password"
 
-[node name="LineEditPassword" type="LineEdit" parent="ColorRect/VBoxContainer"]
+[node name="LineEditPassword" type="LineEdit" parent="ControlUserCreds/VBoxContainer"]
 layout_mode = 2
+right_icon = ExtResource("3_vuy08")
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="Button" type="Button" parent="ControlUserCreds"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,8 +77,241 @@ offset_right = 25.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("1_ids4o")
 disabled = true
 text = "OK"
+icon = ExtResource("4_j8ah5")
+expand_icon = true
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[node name="ControlTCs" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -237.0
+offset_right = 307.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_u82we")
+
+[node name="ColorRect" type="ColorRect" parent="ControlTCs"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.533037, 0.533037, 0.533037, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlTCs"]
+layout_mode = 0
+offset_right = 631.0
+offset_bottom = 521.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ControlTCs/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlTCs/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlTCs/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Terms and Conditions
+General Site Usage
+
+Last Revised: December 16, 2013
+
+Welcome to www.lorem-ipsum.info. This site is provided as a service to our visitors and may be used for informational purposes only. Because the Terms and Conditions contain legal obligations, please read them carefully.
+1. YOUR AGREEMENT
+
+By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.
+
+    PLEASE NOTE: We reserve the right, at our sole discretion, to change, modify or otherwise alter these Terms and Conditions at any time. Unless otherwise indicated, amendments will become effective immediately. Please review these Terms and Conditions periodically. Your continued use of the Site following the posting of changes and/or modifications will constitute your acceptance of the revised Terms and Conditions and the reasonableness of these standards for notice of changes. For your information, this page was last updated as of the date at the top of these terms and conditions.
+
+2. PRIVACY
+
+Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.
+3. LINKED SITES
+
+This Site may contain links to other independent third-party Web sites (\"Linked Sites”). These Linked Sites are provided solely as a convenience to our visitors. Such Linked Sites are not under our control, and we are not responsible for and does not endorse the content of such Linked Sites, including any information or materials contained on such Linked Sites. You will need to make your own independent judgment regarding your interaction with these Linked Sites.
+4. FORWARD LOOKING STATEMENTS
+
+All materials reproduced on this site speak as of the original date of publication or filing. The fact that a document is available on this site does not mean that the information contained in such document has not been modified or superseded by events or by a subsequent document or filing. We have no duty or policy to update any information or statements contained on this site and, therefore, such information or statements should not be relied upon as being current as of the date you access this site.
+5. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY
+
+A. THIS SITE MAY CONTAIN INACCURACIES AND TYPOGRAPHICAL ERRORS. WE DOES NOT WARRANT THE ACCURACY OR COMPLETENESS OF THE MATERIALS OR THE RELIABILITY OF ANY ADVICE, OPINION, STATEMENT OR OTHER INFORMATION DISPLAYED OR DISTRIBUTED THROUGH THE SITE. YOU EXPRESSLY UNDERSTAND AND AGREE THAT: (i) YOUR USE OF THE SITE, INCLUDING ANY RELIANCE ON ANY SUCH OPINION, ADVICE, STATEMENT, MEMORANDUM, OR INFORMATION CONTAINED HEREIN, SHALL BE AT YOUR SOLE RISK; (ii) THE SITE IS PROVIDED ON AN \"AS IS\" AND \"AS AVAILABLE\" BASIS; (iii) EXCEPT AS EXPRESSLY PROVIDED HEREIN WE DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, WORKMANLIKE EFFORT, TITLE AND NON-INFRINGEMENT; (iv) WE MAKE NO WARRANTY WITH RESPECT TO THE RESULTS THAT MAY BE OBTAINED FROM THIS SITE, THE PRODUCTS OR SERVICES ADVERTISED OR OFFERED OR MERCHANTS INVOLVED; (v) ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SITE IS DONE AT YOUR OWN DISCRETION AND RISK; and (vi) YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR FOR ANY LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.
+
+B. YOU UNDERSTAND AND AGREE THAT UNDER NO CIRCUMSTANCES, INCLUDING, BUT NOT LIMITED TO, NEGLIGENCE, SHALL WE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE OR CONSEQUENTIAL DAMAGES THAT RESULT FROM THE USE OF, OR THE INABILITY TO USE, ANY OF OUR SITES OR MATERIALS OR FUNCTIONS ON ANY SUCH SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE FOREGOING LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.
+6. EXCLUSIONS AND LIMITATIONS
+
+SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, OUR LIABILITY IN SUCH JURISDICTION SHALL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+7. OUR PROPRIETARY RIGHTS
+
+This Site and all its Contents are intended solely for personal, non-commercial use. Except as expressly provided, nothing within the Site shall be construed as conferring any license under our or any third party's intellectual property rights, whether by estoppel, implication, waiver, or otherwise. Without limiting the generality of the foregoing, you acknowledge and agree that all content available through and used to operate the Site and its services is protected by copyright, trademark, patent, or other proprietary rights. You agree not to: (a) modify, alter, or deface any of the trademarks, service marks, trade dress (collectively \"Trademarks\") or other intellectual property made available by us in connection with the Site; (b) hold yourself out as in any way sponsored by, affiliated with, or endorsed by us, or any of our affiliates or service providers; (c) use any of the Trademarks or other content accessible through the Site for any purpose other than the purpose for which we have made it available to you; (d) defame or disparage us, our Trademarks, or any aspect of the Site; and (e) adapt, translate, modify, decompile, disassemble, or reverse engineer the Site or any software or programs used in connection with it or its products and services.
+
+The framing, mirroring, scraping or data mining of the Site or any of its content in any form and by any method is expressly prohibited.
+8. INDEMNITY
+
+By using the Site web sites you agree to indemnify us and affiliated entities (collectively \"Indemnities\") and hold them harmless from any and all claims and expenses, including (without limitation) attorney's fees, arising from your use of the Site web sites, your use of the Products and Services, or your submission of ideas and/or related materials to us or from any person's use of any ID, membership or password you maintain with any portion of the Site, regardless of whether such use is authorized by you.
+9. COPYRIGHT AND TRADEMARK NOTICE
+
+Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted. generator.lorem-ipsum.info © 2013, all rights reserved
+10. INTELLECTUAL PROPERTY INFRINGEMENT CLAIMS
+
+It is our policy to respond expeditiously to claims of intellectual property infringement. We will promptly process and investigate notices of alleged infringement and will take appropriate actions under the Digital Millennium Copyright Act (\"DMCA\") and other applicable intellectual property laws. Notices of claimed infringement should be directed to:
+
+generator.lorem-ipsum.info
+
+126 Electricov St.
+
+Kiev, Kiev 04176
+
+Ukraine
+
+contact@lorem-ipsum.info
+11. PLACE OF PERFORMANCE
+
+This Site is controlled, operated and administered by us from our office in Kiev, Ukraine. We make no representation that materials at this site are appropriate or available for use at other locations outside of the Ukraine and access to them from territories where their contents are illegal is prohibited. If you access this Site from a location outside of the Ukraine, you are responsible for compliance with all local laws.
+12. GENERAL
+
+A. If any provision of these Terms and Conditions is held to be invalid or unenforceable, the provision shall be removed (or interpreted, if possible, in a manner as to be enforceable), and the remaining provisions shall be enforced. Headings are for reference purposes only and in no way define, limit, construe or describe the scope or extent of such section. Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches. These Terms and Conditions set forth the entire understanding and agreement between us with respect to the subject matter contained herein and supersede any other agreement, proposals and communications, written or oral, between our representatives and you with respect to the subject matter hereof, including any terms and conditions on any of customer's documents or purchase orders.
+
+B. No Joint Venture, No Derogation of Rights. You agree that no joint venture, partnership, employment, or agency relationship exists between you and us as a result of these Terms and Conditions or your use of the Site. Our performance of these Terms and Conditions is subject to existing laws and legal process, and nothing contained herein is in derogation of our right to comply with governmental, court and law enforcement requests or requirements relating to your use of the Site or information provided to or gathered by us with respect to such use.
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac mattis urna, eu luctus urna. Suspendisse eu nibh eu quam congue hendrerit a at mauris. Nulla rutrum scelerisque ex nec facilisis. Suspendisse justo dui, sagittis eu venenatis vitae, tincidunt eu tortor. Donec ultricies varius ex ut tincidunt. Donec maximus nisi ut ligula mattis sollicitudin. Etiam eget diam eget leo finibus consequat vitae vel lacus. Nullam sed nulla ac ex ultrices finibus sit amet et sem. Nulla facilisi. Pellentesque at sem ut quam porta maximus eget a nibh. Phasellus tempor ultrices diam, quis placerat purus consequat in. Donec sed tortor semper, dapibus enim non, scelerisque ante. Vivamus orci nisl, iaculis nec feugiat eu, dignissim eget orci. Morbi eleifend et urna et faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Morbi sed erat in ex porttitor vehicula ac a nisi. In placerat tristique eros, id posuere tellus lobortis sit amet. Nullam pharetra justo est, in mattis enim venenatis ut. In ex metus, tempor vel sem vitae, tempus suscipit tellus. Quisque non tincidunt elit, in posuere risus. Nunc eget tortor sit amet nisl vehicula suscipit. In eu tellus turpis. Vestibulum ante elit, blandit in neque quis, sagittis vulputate dui.
+
+Curabitur augue mauris, sodales in volutpat et, sagittis vel augue. Quisque tempus felis vel quam fermentum, sit amet dapibus eros malesuada. Fusce at felis at elit vestibulum iaculis tristique at orci. Aliquam a rutrum dui, eu dapibus urna. Duis enim arcu, placerat non tristique vel, aliquam sit amet dolor. Etiam et fermentum elit. Fusce finibus augue in est lacinia dapibus.
+
+Curabitur et eleifend leo. Suspendisse potenti. Cras id dolor sed tortor pretium pulvinar. Praesent nec ex justo. Mauris malesuada nisi ac risus hendrerit, nec euismod sapien congue. Pellentesque tempor urna eget interdum bibendum. Nulla placerat nulla et ipsum lobortis consequat. Morbi posuere tristique dui non placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at maximus velit. Morbi dolor nisl, pulvinar quis erat eu, hendrerit gravida massa. Phasellus arcu nisl, pulvinar id sollicitudin non, posuere et nunc. Aenean convallis rhoncus eros, et pharetra metus mattis ut. Donec facilisis massa mauris, at vulputate diam eleifend quis.
+
+Aenean quis ipsum sit amet justo ultrices rhoncus. Fusce tristique, odio eget cursus laoreet, mauris nunc volutpat urna, a elementum erat velit nec ligula. Nullam risus magna, eleifend vitae consequat quis, auctor at risus. Nulla id rutrum felis. Curabitur ut nibh vestibulum, accumsan arcu eget, sodales metus. Nunc sed porttitor quam, sed posuere ligula. Sed pellentesque nec dolor id mattis. "
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlTCs/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="ControlTCs/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ControlTCs/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "SURE, WHY NOT OK"
+
+[node name="Button" type="Button" parent="ControlTCs/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("1_ids4o")
+disabled = true
+text = "OK"
+icon = ExtResource("4_j8ah5")
+expand_icon = true
+
+[connection signal="pressed" from="ControlUserCreds/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="ControlTCs/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/CheckBox" to="ControlTCs" method="_on_check_box_toggled"]
+[connection signal="pressed" from="ControlTCs/VBoxContainer/Button" to="ControlTCs" method="_on_button_pressed"]

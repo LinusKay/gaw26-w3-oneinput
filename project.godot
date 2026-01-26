@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DeviceManager="*res://scripts/device_manager.gd"
-LayerGlobalTimer="*res://layer_global_timer.tscn"
+LayerGlobalTimer="*res://scenes/layer_global_timer.tscn"
 Game="*res://scripts/game.gd"
 
 [input]

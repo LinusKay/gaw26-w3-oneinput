@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjf78jn5ry6xr"]
 
-[ext_resource type="Script" path="res://layer_global_timer.gd" id="1_epboq"]
+[ext_resource type="Script" path="res://scenes/layer_global_timer.gd" id="1_epboq"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 10
@@ -16,5 +16,5 @@ grow_horizontal = 0
 text = "0:00"
 
 [node name="TimerGlobal" type="Timer" parent="."]
-wait_time = 300.0
+wait_time = 60.0
 autostart = true
