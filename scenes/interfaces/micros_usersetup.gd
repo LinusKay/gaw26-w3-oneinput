@@ -3,6 +3,7 @@ extends Control
 @onready var line_edit_username: LineEdit = $ControlUserCreds/VBoxContainer/LineEditUsername
 @onready var line_edit_password: LineEdit = $ControlUserCreds/VBoxContainer/LineEditPassword
 @onready var button: Button = $ControlUserCreds/Button
+@onready var control_user_creds: Control = $ControlUserCreds
 @onready var control_t_cs: Control = $ControlTCs
 
 func _process(_delta: float) -> void:
@@ -20,7 +21,9 @@ func _process(_delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	_save_user()
+	control_user_creds.hide()
 	control_t_cs.show()
+	
 
 
 func _save_user() -> void:

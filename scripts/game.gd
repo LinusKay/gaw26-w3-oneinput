@@ -1,4 +1,4 @@
 extends Node
 
-var username: String
-var password: String
+var username: String = ""
+var password: String = ""

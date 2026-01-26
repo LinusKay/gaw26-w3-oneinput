@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://crx0nxhy4jd1q"]
+[gd_scene load_steps=8 format=3 uid="uid://crx0nxhy4jd1q"]
 
-[ext_resource type="Script" path="res://scenes/interfaces/micros_usersetup.gd" id="1_15ock"]
+[ext_resource type="Script" uid="uid://ggnj5mdosyob" path="res://scenes/interfaces/micros_usersetup.gd" id="1_15ock"]
 [ext_resource type="Theme" uid="uid://bkkk12h5j8dkn" path="res://theme/micros_theme.tres" id="1_ids4o"]
 [ext_resource type="Texture2D" uid="uid://bxnavgwrhady0" path="res://textures/keyboard_icon.png" id="3_vuy08"]
 [ext_resource type="Texture2D" uid="uid://bkwilyf1xtbmo" path="res://textures/cursor_icon.png" id="4_j8ah5"]
-[ext_resource type="Script" path="res://scenes/interfaces/control_t_cs.gd" id="5_u82we"]
+[ext_resource type="Script" uid="uid://cssp1kt0oh330" path="res://scenes/interfaces/control_t_cs.gd" id="5_u82we"]
+[ext_resource type="Script" uid="uid://cpndbde0eva25" path="res://scenes/interfaces/enablefeatures.gd" id="6_eargv"]
+[ext_resource type="PackedScene" uid="uid://doymm3qcn86yr" path="res://scenes/interfaces/featureselectitem.tscn" id="6_en0k8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_15ock")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -85,6 +88,7 @@ icon = ExtResource("4_j8ah5")
 expand_icon = true
 
 [node name="ControlTCs" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -301,7 +305,16 @@ layout_mode = 2
 layout_mode = 2
 text = "SURE, WHY NOT OK"
 
-[node name="Button" type="Button" parent="ControlTCs/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlTCs/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonBack" type="Button" parent="ControlTCs/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+icon = ExtResource("4_j8ah5")
+
+[node name="ButtonOK" type="Button" parent="ControlTCs/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -312,6 +325,89 @@ text = "OK"
 icon = ExtResource("4_j8ah5")
 expand_icon = true
 
+[node name="ControlFeatures" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_eargv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlFeatures"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -136.0
+offset_right = 380.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ControlFeatures/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+columns = 2
+
+[node name="PanelContainer" parent="ControlFeatures/VBoxContainer/GridContainer" instance=ExtResource("6_en0k8")]
+layout_mode = 2
+feature_name = "Advertising Tracking"
+feature_desc = "Allow us to track your activity, network traffic, biometrics for advertising purposes."
+
+[node name="PanelContainer2" parent="ControlFeatures/VBoxContainer/GridContainer" instance=ExtResource("6_en0k8")]
+layout_mode = 2
+feature_name = "Artificial Intelligence Training Data"
+feature_desc = "Allow us to train our sophisticated AI on your activity, written, and audiovisual data"
+
+[node name="PanelContainer3" parent="ControlFeatures/VBoxContainer/GridContainer" instance=ExtResource("6_en0k8")]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+feature_name = "Ringo"
+feature_desc = "Enable Ringo (not available in region)"
+enabled = false
+
+[node name="PanelContainer4" parent="ControlFeatures/VBoxContainer/GridContainer" instance=ExtResource("6_en0k8")]
+layout_mode = 2
+feature_name = "Location Services"
+feature_desc = "Enable location tracking"
+
+[node name="PanelContainer5" parent="ControlFeatures/VBoxContainer/GridContainer" instance=ExtResource("6_en0k8")]
+layout_mode = 2
+feature_name = "Maintenance Tools"
+feature_desc = "Enable optional maintenance/recovery tools"
+require_recovery = true
+
+[node name="PanelContainer6" parent="ControlFeatures/VBoxContainer/GridContainer" instance=ExtResource("6_en0k8")]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlFeatures/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonBack" type="Button" parent="ControlFeatures/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+icon = ExtResource("4_j8ah5")
+
+[node name="ButtonOK" type="Button" parent="ControlFeatures/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("1_ids4o")
+text = "OK"
+icon = ExtResource("4_j8ah5")
+expand_icon = true
+
 [connection signal="pressed" from="ControlUserCreds/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="ControlTCs/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/CheckBox" to="ControlTCs" method="_on_check_box_toggled"]
-[connection signal="pressed" from="ControlTCs/VBoxContainer/Button" to="ControlTCs" method="_on_button_pressed"]
+[connection signal="pressed" from="ControlTCs/VBoxContainer/HBoxContainer/ButtonBack" to="ControlTCs" method="_on_button_back_pressed"]
+[connection signal="pressed" from="ControlTCs/VBoxContainer/HBoxContainer/ButtonOK" to="ControlTCs" method="_on_button_pressed"]
+[connection signal="pressed" from="ControlFeatures/VBoxContainer/HBoxContainer/ButtonBack" to="ControlFeatures" method="_on_button_back_pressed"]
+[connection signal="pressed" from="ControlFeatures/VBoxContainer/HBoxContainer/ButtonOK" to="ControlFeatures" method="_on_button_ok_pressed"]

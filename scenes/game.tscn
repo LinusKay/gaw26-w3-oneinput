@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://83syuj7lh0ym"]
+[gd_scene load_steps=2 format=3 uid="uid://yicge48108e0"]
 
 [ext_resource type="PackedScene" uid="uid://blyw11iq8h1vh" path="res://scenes/interfaces/corton_boot.tscn" id="2_f0xlq"]
 
