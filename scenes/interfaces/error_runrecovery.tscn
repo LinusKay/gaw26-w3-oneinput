@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq6ov4kkqs3bt"]
+
+[ext_resource type="Script" uid="uid://cgm20mk1pl2jp" path="res://scenes/interfaces/error_runrecovery.gd" id="1_45fdu"]
+[ext_resource type="Theme" uid="uid://bo3x46m1p42fb" path="res://theme/boot_text.tres" id="1_vo2qc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_45fdu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -24.5
+offset_right = 28.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Container"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 0
+offset_right = 75.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.5729883, 0.5729883, 0.5729883, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/Container"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_vo2qc")
+text = "micrOS"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vo2qc")
+text = "An error has occured. Please run recovery.
+
+To continue:
+Press Enter before timeout to return to micrOS boot.
+Press F2 before timeout to return to micrOS setup.
+
+Error: AX : 011A : FBCD7B3A5
+"
+horizontal_alignment = 1
+
+[node name="LabelCountdown" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="VBoxContainer/LabelCountdown"]
+
+[connection signal="timeout" from="VBoxContainer/LabelCountdown/Timer" to="." method="_on_timer_timeout"]
