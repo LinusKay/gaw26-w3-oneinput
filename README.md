@@ -24,6 +24,8 @@ Week 3 continued my historic run of not finishing a game and not showing up on g
 
 My interpretation of this theme was to treat the single USB port on my laptop as my one input to work with, building a game where players would have to rapidly switch out peripherals to complete a number of tasks. This bring back memories of my time in tech support, having to grapple with limited inputs on cheap hardware. To this day I can't look at multi eth/usb-a/usb-c to usb-c adapters without shuddering. Yuck.
 
+NOTE: you wont be able to play this without a USB created with the below notes! You'll figure it out.
+
 ![showcase img 1](readme/screen2.png)
 
 Players are entrusted with booting up an unknown system. They will be expected to swap between an external USB keyboard, mouse, and two specifically crafted USB drives. UI design was based on a mix of Windows and various Linux builds, and I think they look pretty flash! Coming up with names for tech is also pretty fun. I tend to pick something off the dome and stick with it.
