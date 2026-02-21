@@ -14,7 +14,7 @@
 > We’re approaching an old classic with a new lens - some of you may remember weird input. This week, we wanted to create a theme that encouraged unique approaches to input but with more specificity. So, we’re focusing on ONE input this week. The constraint being that you can choose any singular type of input, be it one button, a trigger, a joystick, motion controls, touch, or anything else your mind can think of, and be restrained to ONLY that input for your projects this week!
 
 
-## Game: ???
+## Game: micrOS
 
 *This write-up was written after GAW26 concluded, with more retrospective notes*
 
