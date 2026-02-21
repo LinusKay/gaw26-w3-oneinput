@@ -26,7 +26,7 @@ My interpretation of this theme was to treat the single USB port on my laptop as
 
 ![showcase img 1](readme/screen2.png)
 
-Players are entrusted with booting up an unknown system. They will be expected to swap between an external USB keyboard, mouse, and two specifically crafted USB drives. UI design was based on a mix of Windows and various Linux builds, and I think they look pretty flash! 
+Players are entrusted with booting up an unknown system. They will be expected to swap between an external USB keyboard, mouse, and two specifically crafted USB drives. UI design was based on a mix of Windows and various Linux builds, and I think they look pretty flash! Coming up with names for tech is also pretty fun. I tend to pick something off the dome and stick with it.
 
 I puzzled over the best way to read USB drives, and found that I wasn't able to allow users to access files from them, since they would have no way to input directions to select said files. Further, I didn't want to rely on just naming the device, being unsure how different systems would handle this info. I settled for hosting a DRIVEINFO files on each USB, similar to the below. 
 
