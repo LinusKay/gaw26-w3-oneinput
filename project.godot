@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="New Game Project"
+run/main_scene="uid://yicge48108e0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,10 @@ config/icon="res://icon.svg"
 DeviceManager="*res://scripts/device_manager.gd"
 LayerGlobalTimer="*res://scenes/layer_global_timer.tscn"
 Game="*res://scripts/game.gd"
+
+[global_group]
+
+challenge=""
 
 [input]
 

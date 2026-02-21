@@ -8,7 +8,7 @@ extends Control
 @onready var label_key_input_vol_up: Label = $VBoxContainer/HBoxContainer/LabelKeyInputVolUp
 @onready var label_key_input_vol_down: Label = $VBoxContainer/HBoxContainer/LabelKeyInputVolDown
 
-var check_drives: bool = false
+var check_drives: bool = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,3 +50,4 @@ func _process(_delta: float) -> void:
 	
 	label_usb_input_storage.modulate.a = 0.5
 	label_usb_input_util.modulate.a = 0.5
+			
